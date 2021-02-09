@@ -1,11 +1,11 @@
-﻿$ProjectFolder = 'S:\work\Github\BuildAndFill'
-$Server = 'PentlowMillServ'
+﻿$ProjectFolder = 'MyPathTo\BuildAndFill'
+$Server = 'MyServer'
 $Database = 'AdWorks';
 $ProjectName='AdventureWorks';
 $DataSource='AdventureWorks2016'; #where you got the data from 
 $ProjectDescription='A sample project to show how to build a database and fill it with data'
 <# you only need this username and password if there is no domain authentication #>
-$username = 'PhilFactor'
+$username = 'Phil Factor'
 $port = '1433'
 # add a bit of error-checking. Is the project directory there
 if (-not (Test-Path "$ProjectFolder"))
