@@ -4,7 +4,7 @@ of the data, remember to specify it without the macro and with the trailing
 backslash as normal */
 DECLARE @DataFolderLocation sysname = 'C:\BCPData\${datasource}\databaseContents';
 DECLARE @CurrentDatabase sysname=db_name();--this database. eg PubsTest
-Declare @SourceDatabase sysname='${datasource}'; --'MyProject';
+Declare @DataSource sysname='${datasource}'; --'MyProject';
 --the project name of the database e.g. Pubs
 
 DECLARE @command NVARCHAR(4000);
@@ -113,7 +113,7 @@ Print ''inserting ?''
 SET ANSI_NULLS, QUOTED_IDENTIFIER ON;
 if ''?''<>''[dbo].[flyway_schema_history]''
 BULK INSERT '+@CurrentDatabase+'.?
-	FROM '''+@DataFolderLocation+'\V'+@CorrectVersion+'\'+@SourceDatabase+'-?.bcp''
+	FROM '''+@DataFolderLocation+'\V'+@CorrectVersion+'\'+@DataSource+'-?.bcp''
 	WITH (
 		DATAFILETYPE = ''widenative'',KEEPIDENTITY
 		);';
