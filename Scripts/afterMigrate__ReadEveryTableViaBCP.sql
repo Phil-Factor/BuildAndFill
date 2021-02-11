@@ -1,7 +1,9 @@
-/* if you want to do it by the name of the database, use the macro '<dbname>' 
-to specify what you want. if you change the name of the database to the source
+ /* if your data is in a directory that uses the name of the datasource database,
+use the macro '<dbname>' to match the data output routine. 
+if you change the name of the database to the source
 of the data, remember to specify it without the macro and with the trailing
 backslash as normal */
+
 DECLARE @DataFolderLocation sysname = 'C:\BCPData\${datasource}\databaseContents';
 DECLARE @CurrentDatabase sysname=db_name();--this database. eg PubsTest
 Declare @DataSource sysname='${datasource}'; --'MyProject';
