@@ -4824,7 +4824,7 @@ ALTER TABLE [HumanResources].[Employee] WITH NOCHECK ADD CONSTRAINT [CK_Employee
 GO
 IF @@ERROR <> 0 SET NOEXEC ON
 GO
-ALTER TABLE [HumanResources].[Employee] WITH NOCHECK ADD CONSTRAINT [CK_Employee_SickLeaveHours] CHECK (([SickLeaveHours]>=(0) AND [SickLeaveHours]<=(65)))
+ALTER TABLE [HumanResources].[Employee] WITH NOCHECK ADD CONSTRAINT [CK_Employee_SickLeaveHours] CHECK (([SickLeaveHours]>=(0) AND [SickLeaveHours]<=(120)))
 GO
 IF @@ERROR <> 0 SET NOEXEC ON
 GO

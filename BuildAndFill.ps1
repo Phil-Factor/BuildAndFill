@@ -1,11 +1,13 @@
-﻿$ProjectFolder = 'MyPathTo\BuildAndFill'
-$Server = 'MyServer'
-$Database = 'AdWorks';
-$ProjectName='AdventureWorks';
+﻿$ProjectFolder = 'PathTo\BuildAndFill' # where the migration scripts are stored
+$Server = 'MyServer' # the name of the server
+$Database = 'AdWorks'; # The name of the database we are currently migrating
+$ProjectName='AdventureWorks'; # this gets used to write out extended properties
 $DataSource='AdventureWorks2016'; #where you got the data from 
+# to describe the database for monitoring systems in an extended property
 $ProjectDescription='A sample project to show how to build a database and fill it with data'
+
 <# you only need this username and password if there is no domain authentication #>
-$username = 'Phil Factor'
+$username = 'PhilFactor'
 $port = '1433'
 # add a bit of error-checking. Is the project directory there
 if (-not (Test-Path "$ProjectFolder"))
@@ -53,5 +55,9 @@ $FlyWayArgs+= <# the project variables that we reference with placeholders #>
     @("-placeholders.projectDescription=$ProjectDescription",
       "-placeholders.projectName=$ProjectName",
       "-placeholders.datasource=$DataSource") <# the project variables #>
+Fly
+
 
 Flyway migrate @FlyWayArgs -mixed="true"
+Flyway baseline  @FlyWayArgs -baselineVersion='0.0.1' -baselineDescription='Existing version of database'
+flyway info @FlywayArgs
