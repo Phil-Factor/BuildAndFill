@@ -55,9 +55,5 @@ $FlyWayArgs+= <# the project variables that we reference with placeholders #>
     @("-placeholders.projectDescription=$ProjectDescription",
       "-placeholders.projectName=$ProjectName",
       "-placeholders.datasource=$DataSource") <# the project variables #>
-Fly
-
 
 Flyway migrate @FlyWayArgs -mixed="true"
-Flyway baseline  @FlyWayArgs -baselineVersion='0.0.1' -baselineDescription='Existing version of database'
-flyway info @FlywayArgs
