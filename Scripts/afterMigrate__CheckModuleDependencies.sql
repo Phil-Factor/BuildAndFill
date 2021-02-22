@@ -1,5 +1,3 @@
-
-
 /*
 ** start of the batch that checks the non-schemabound routines **
 
